@@ -1,0 +1,13 @@
+<h1>Your Order is: </h1>
+
+<br />
+
+<form method="POST">
+  {%csrf_token%} 
+  {% if orderList%}
+  <h4>Product</h4>
+  <label>{{orderList.item_name}}<label><br />
+    <label>Quantity: {{orderList.quantity}}</labek><br /><br>
+        {% endif %}
+  <input type="submit" value="Pay" />
+</form>

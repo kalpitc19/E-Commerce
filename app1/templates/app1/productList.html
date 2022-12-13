@@ -1,25 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      h1{
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:10px;
+      }
+          table{
+            margin-left:auto;
+            margin-right:auto;
+            width: 60%;
+            align-items: center;
+            text-align: center;
+          }
+          table.tr{
+            margin-top: 10px;
+          }
+          th{
+            font-size: 30px
+          }
+          td{
+            color: white;
+            font-size: 20px;
+          }
+          a:link,a:visited{
+            color:white;
+            text-decoration: none;
+          }
+          div{
+            width: 80%;
+            margin-left:auto;
+            margin-right:auto;
+            background-color: blueviolet;
+            opacity:0.95;
+            border-radius: 40px;
+
+          }
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
   </head>
   <body>
+    <div>
+      <br>
+    <center><h1>Welcome to Buyit Order your stuff here</h1></center>
+    <form method="post">
+      {% csrf_token %}
+     <table class="row">
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+    {% if productsList%} {% for product in productsList %}
+    <tr>
+      <td name="name{{product.id}}"><a href="product{{product.id}}">{{product.product_name}}</a></td>
+      <td>{{product.product_price}}</td>
+    </tr>
+    <br>
+    {% endfor %} {% else %}
+    <p>No Product avialable</p>
+    {% endif %}
+    <table>
+    <br><br>
+    {% comment %} <center><input type="submit" value="place order"/></center> {% endcomment %}
     <form>
-      <label>item 1</label>
-      <input type="number" value="-" />
-      <input type="number" value="+" />
-    </form>
-    <form>
-      <label>item 1</label>
-      <input type="submit" value="-" />
-      <input type="submit" value="+" />
-    </form>
-    <form>
-      <label>item 1</label>
-      <input type="submit" value="-" />
-      <input type="submit" value="+" />
-    </form>
+    </div>
   </body>
 </html>

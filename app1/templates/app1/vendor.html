@@ -1,0 +1,15 @@
+<h1>Sell here</h1>
+
+<br />
+
+<form method="POST">
+  {%csrf_token%} Product name:
+  <input type="text" , name="product_name" /><br /><br />
+
+  Price: <input type="integer" , name="product_price" /><br /><br />
+
+  Description:
+  <textarea name="description" id="" cols="30" rows="10"></textarea>
+
+  <input type="submit" value="POST" />
+</form>
